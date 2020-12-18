@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<section class="our-webcoderskull padding-lg">
+  <div class="container">
+    <div class="row heading heading-icon">
+        <h2>Personajes</h2>
+    </div>
+    </div>
+</section>
+<label>Seleccione la casa perteneciente</label>
+<br>
+<select (change)="OnHouseChange()" [(ngModel)]="this.casaSeleccionada" class="form-group">
+  <option [value]="casa.casaNombre" *ngFor=" let casa of casaListado" >
+    {{casa.casaNombre}}
+  </option>
+</select>
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Patronus</th>
+      <th scope="col">Age</th>
+      <th scope="col">Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let personaje of personajes; index as i">
+
+        <td>{{ personaje.name }}</td>
+        <td *ngIf="!personaje.patronus">No Registra</td>
+        <td *ngIf="personaje.patronus">{{ personaje.patronus }}</td>
+        <td *ngIf="!personaje.dateOfBirth">No Registra</td>
+        <td *ngIf="personaje.dateOfBirth">{{personaje.dateOfBirth}}</td>
+        <td *ngIf="!personaje.image">No Registra</td>
+        <td *ngIf="personaje.image"><img src="{{personaje.image}}" style="width: 70px; height: 70px"></td>
+
+        <li *ngIf="!personaje">La lista esta vacia</li>
+    </tr>
+  </tbody>
+</table>
+
+<!-- <ul>
+<li *ngIf="!students">La lista esta vacia</li>
+<div *ngFor="let name of students; index as i">
+{{name}} {{i}}
+<button (click)="deleteItem(i)">Eliminar</button>
+</div>
+</ul> -->

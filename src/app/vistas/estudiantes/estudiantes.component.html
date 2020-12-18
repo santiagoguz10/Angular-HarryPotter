@@ -1,0 +1,43 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<section class="our-webcoderskull padding-lg">
+  <div class="container">
+    <div class="row heading heading-icon">
+        <h2>Estudiantes</h2>
+    </div>
+    </div>
+</section>
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Patronus</th>
+      <th scope="col">Age</th>
+      <th scope="col">Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students; index as i">
+
+      <td>{{ student.name }}</td>
+      <td *ngIf="!student.patronus">No Registra</td>
+      <td *ngIf="student.patronus">{{ student.patronus }}</td>
+      <td *ngIf="!student.dateOfBirth">No Registra</td>
+      <td *ngIf="student.dateOfBirth">{{student.dateOfBirth}}</td>
+      <td *ngIf="!student.image">No Registra</td>
+      <td *ngIf="student.image"><img src="{{student.image}}" style="width: 70px; height: 70px"></td>
+        <li *ngIf="!student">La lista esta vacia</li>
+    </tr>
+  </tbody>
+</table>
+
+<button (click)="addItem()">Agregar Estudiante</button>
+
+<!-- <ul>
+<li *ngIf="!students">La lista esta vacia</li>
+<div *ngFor="let name of students; index as i">
+{{name}} {{i}}
+<button (click)="deleteItem(i)">Eliminar</button>
+</div>
+</ul> -->

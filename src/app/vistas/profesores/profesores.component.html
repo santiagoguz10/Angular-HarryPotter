@@ -1,0 +1,43 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<section class="our-webcoderskull padding-lg">
+  <div class="container">
+    <div class="row heading heading-icon">
+        <h2>profesores</h2>
+    </div>
+    </div>
+</section>
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Patronus</th>
+      <th scope="col">Age</th>
+      <th scope="col">Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let profesor of profesors; index as i">
+
+      <td>{{ profesor.name }}</td>
+      <td *ngIf="!profesor.patronus">No Registra</td>
+      <td *ngIf="profesor.patronus">{{ profesor.patronus }}</td>
+      <td *ngIf="!profesor.dateOfBirth">No Registra</td>
+      <td *ngIf="profesor.dateOfBirth">{{profesor.dateOfBirth}}</td>
+      <td *ngIf="!profesor.image">No Registra</td>
+      <td *ngIf="profesor.image"><img src="{{profesor.image}}" style="width: 70px; height: 70px"></td>
+
+        <li *ngIf="!profesors">La lista esta vacia</li>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- <ul>
+<li *ngIf="!profesor">La lista esta vacia</li>
+<div *ngFor="let name of profesor; index as i">
+{{name}} {{i}}
+<button (click)="deleteItem(i)">Eliminar</button>
+</div>
+</ul> -->
